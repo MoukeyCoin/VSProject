@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ForceCalculationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BuildingObject">
+          <Key>
+            <PropertyRef Name="buildingref" />
+          </Key>
+          <Property Name="buildingref" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="e3dtype" Type="nvarchar" MaxLength="10" />
+          <Property Name="length" Type="float" />
+          <Property Name="width" Type="float" />
+          <Property Name="thickness" Type="float" />
+        </EntityType>
+        <EntityContainer Name="ForceCalculationModelStoreContainer">
+          <EntitySet Name="BuildingObject" EntityType="Self.BuildingObject" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ForceCalculationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BuildingObject">
+          <Key>
+            <PropertyRef Name="buildingref" />
+          </Key>
+          <Property Name="buildingref" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="e3dtype" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="length" Type="Double" />
+          <Property Name="width" Type="Double" />
+          <Property Name="thickness" Type="Double" />
+        </EntityType>
+        <EntityContainer Name="ForceCalculationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BuildingObjects" EntityType="Self.BuildingObject" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ForceCalculationModelStoreContainer" CdmEntityContainer="ForceCalculationEntities">
+          <EntitySetMapping Name="BuildingObjects">
+            <EntityTypeMapping TypeName="ForceCalculationModel.BuildingObject">
+              <MappingFragment StoreEntitySet="BuildingObject">
+                <ScalarProperty Name="buildingref" ColumnName="buildingref" />
+                <ScalarProperty Name="e3dtype" ColumnName="e3dtype" />
+                <ScalarProperty Name="length" ColumnName="length" />
+                <ScalarProperty Name="width" ColumnName="width" />
+                <ScalarProperty Name="thickness" ColumnName="thickness" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
